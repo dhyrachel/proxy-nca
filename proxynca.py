@@ -9,7 +9,7 @@ def binarize_and_smooth_labels(T, nb_classes, smoothing_const = 0.1):
     T = T.cpu().numpy()
     T = sklearn.preprocessing.label_binarize(
         T, classes = range(0, nb_classes)
-    )
+    ) ## T shape(32, 100)
     T = T * (1 - smoothing_const)
     T[T == 0] = smoothing_const / (nb_classes - 1)
     T = torch.FloatTensor(T).cuda()
