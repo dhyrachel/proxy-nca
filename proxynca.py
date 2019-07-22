@@ -107,6 +107,7 @@ if __name__ == '__main__':
     sz_embed = 64
     X = torch.randn(sz_batch, sz_embed).cuda()
     P = torch.randn(nb_classes, sz_embed).cuda()
+    ## T 是长度为 sz_batch 取值[0, 99]之间的一个batch 数据label？
     T = torch.arange(
         0, nb_classes
     ).repeat(sz_batch)[torch.randperm(nb_classes * sz_batch)[:sz_batch]].cuda()
