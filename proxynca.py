@@ -62,7 +62,7 @@ class ProxyNCAUnstable(torch.nn.Module):
         )
         T = binarize_and_smooth_labels(
             T = T, 
-            nb_classes = len(self.proxies), 
+            nb_classes = len(self.proxies),  # len(P) == P.size(0)
             smoothing_const = self.smoothing_const
         )
         # if D not calculated (pdist), then smoothing only for positive possible
