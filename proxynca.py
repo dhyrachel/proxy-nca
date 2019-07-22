@@ -79,6 +79,7 @@ class ProxyNCA(torch.nn.Module):
     def forward(self, X, T):
         
         P = self.proxies
+        # normalize each example, set the length to be 3*1
         P = 3 * F.normalize(P, p = 2, dim = -1)
         X = 3 * F.normalize(X, p = 2, dim = -1)
         D = pairwise_distance(
